@@ -1,0 +1,1280 @@
+/summon falling_block ~ ~1 ~ 
+{
+	Block:stone,
+	Time:1,
+	Passengers:
+	[
+		{
+			id:falling_block,
+			Block:redstone_block,
+			Time:1,
+			Passengers:
+			[
+				{
+					id:falling_block,
+					Block:activator_rail,
+					Time:1
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"gamerule commandBlockOutput false"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"gamerule logAdminCommands false"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"fill ~3 ~-3 ~-1 ~9 ~3 ~2 minecraft:stained_glass 11 hollow"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"fill ~3 ~-3 ~ ~9 ~3 ~1 minecraft:stained_glass 11 replace stained_glass"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~4 ~-2 ~ repeating_command_block 5 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:\"execute @e
+						[
+							score_tree_min=3,
+							type=Armor_Stand
+						] ~ ~ ~ 
+						detect ~ ~ ~ minecraft:log2 -1 
+						/setblock ~ ~ ~ minecraft:air 0 destroy\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~2 ~ ~0 minecraft:wall_sign 4 replace 
+					{
+						Text1:\"
+						{
+							\\\"text\\\":\\\"-=+=-\\\",
+							\\\"color\\\":\\\"blue\\\"
+						}\"
+						,
+						Text2:\"
+						{
+							\\\"text\\\":\\\"Right-Click\\\",
+							\\\"color\\\":\\\"white\\\",
+							\\\"clickEvent\\\":
+							{
+								\\\"action\\\":\\\"run_command\\\",
+								\\\"value\\\":\\\"kill @e[type=Armor_Stand,r=5,c=1]\\\"
+							}
+						}\"
+						,
+						Text3:\"
+						{
+							\\\"text\\\":\\\"To Uninstall \\\",
+							\\\"color\\\":\\\"white\\\",
+							\\\"clickEvent\\\":
+							{
+								\\\"action\\\":\\\"run_command\\\",
+								\\\"value\\\":\\\"fill ~ ~-3 ~-2 ~8 ~3 ~2 minecraft:air\\\"
+							}
+						}\"
+						,
+						Text4:\"
+						{
+							\\\"text\\\":\\\"-=+=-\\\",
+							\\\"color\\\":\\\"blue\\\"
+						}\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"/scoreboard objectives add tree dummy"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"/scoreboard objectives add treeDropAge dummy"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"/scoreboard objectives add mineLog stat.mineBlock.minecraft.log"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"/scoreboard objectives add mineLog2 stat.mineBlock.minecraft.log2"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"/tellraw @a 
+					[
+						\"\",
+						{
+							\"text\":\"TimberMod\",
+							\"color\":\"aqua\",
+							\"bold\":true
+						}
+						,
+						{
+							\"text\":\" by \",
+							\"color\":\"yellow\",
+							\"bold\":false
+						}
+						,
+						{
+							\"text\":\"CheatTrigger\",
+							\"color\":\"aqua\",
+							\"underlined\":true,
+							\"hoverEvent\":
+							{
+								\"action\":\"show_text\",
+								\"value\":
+								{
+									\"text\":\"\",
+									\"extra\":
+									[
+										{
+											\"text\":\"Check for more at my Youtube Channel\"
+										}
+									]
+								}
+							}
+						}
+						,
+						{
+							\"text\":\" was installed with success!\",
+							\"color\":\"yellow\",
+							\"underlined\":false,
+							\"bold\":false
+						}
+					]"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"summon Armor_Stand ~2 ~2 ~0.5 
+					{
+						CustomName:\"Timber Mod by CheatTrigger\",
+						CustomNameVisible:1,
+						Marker:1,
+						Invisible:1,
+						NoGravity:1
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~5 ~-2 ~0 chain_command_block 5 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:\"/execute @e
+						[
+							type=Armor_Stand,
+							score_tree_min=2,
+							score_tree=2,
+							name=TreeBranchW
+						] ~ ~ ~ 
+						/summon Armor_Stand ~-1 ~ ~ 
+						{
+							Invisible:1,
+							Marker:1,
+							Invulnerable:1,
+							NoGravity:1,
+							NoBasePlate:1,
+							CustomName:\\\"TreeBranchW\\\"
+						}\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~6 ~-2 ~0 chain_command_block 5 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:
+						\"/execute @e
+						[
+							score_tree_min=3,
+							type=Armor_Stand
+						] ~ ~ ~ 
+						detect ~ ~ ~ minecraft:vine -1 
+						/setblock ~ ~ ~ minecraft:air 0 destroy\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~7 ~-2 ~0 chain_command_block 5 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:\"/execute @e
+						[
+							score_tree_min=3,
+							type=Armor_Stand
+						] ~ ~ ~ 
+						detect ~ ~ ~ minecraft:leaves2 -1 
+						/setblock ~ ~ ~ minecraft:air 0 destroy\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~8 ~-2 ~0 chain_command_block 1 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:
+						\"/execute @e
+						[
+							type=Armor_Stand,
+							score_tree_min=2,
+							score_tree=2,
+							name=TreeBranchS
+						] ~ ~ ~ 
+						/summon Armor_Stand ~-1 ~ ~ 
+						{
+							Invisible:1,
+							Marker:1,
+							Invulnerable:1,
+							NoGravity:1,
+							NoBasePlate:1,
+							CustomName:\\\"TreeBranchW\\\"
+						}\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~8 ~-1 ~0 chain_command_block 4 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:\"/scoreboard players add @e
+						[
+							type=Armor_Stand,
+							name=TreeBranchU
+						] tree 1\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~7 ~-1 ~0 chain_command_block 4 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:\"/execute 
+						@e
+						[
+							type=Armor_Stand,
+							score_tree_min=2,
+							score_tree=2,
+							name=TreeBase
+						] ~ ~ ~ 
+						/summon Armor_Stand ~-1 ~ ~ 
+						{
+							Invisible:1,
+							Marker:1,
+							Invulnerable:1,
+							NoGravity:1,
+							NoBasePlate:1,
+							CustomName:\\\"TreeBranchW\\\"
+						}\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~6 ~-1 ~0 chain_command_block 4 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:\"/execute @e
+						[
+							type=Armor_Stand,
+							score_tree_min=2,
+							score_tree=2,
+							name=TreeBranchN
+						] ~ ~ ~ 
+						/summon Armor_Stand ~1 ~ ~ 
+						{
+							Invisible:1,
+							Marker:1,
+							Invulnerable:1,
+							NoGravity:1,
+							NoBasePlate:1,
+							CustomName:\\\"TreeBranchE\\\"
+						}\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~5 ~-1 ~0 chain_command_block 4 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:\"/execute 
+						@e
+						[
+							type=Armor_Stand,
+							name=TreeBranchS,
+							score_tree_min=1
+						] ~ ~ ~ detect 
+						~ ~ ~ minecraft:air -1 
+						/kill @e
+						[
+							type=Armor_Stand,
+							c=1
+						]\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~4 ~-1 ~0 chain_command_block 1 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:\"/execute @e
+						[
+							type=Armor_Stand,
+							name=TreeBranchE,
+							score_tree_min=1
+						] ~ ~ ~ 
+						detect ~ ~ ~ minecraft:air -1 
+						/kill @e
+						[
+							type=Armor_Stand,
+							c=1
+						]\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~4 ~0 ~0 chain_command_block 5 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:
+						\"/execute @e
+						[
+							type=Armor_Stand,
+							name=TreeBranchW,
+							score_tree_min=1
+						] ~ ~ ~ detect ~ ~ ~ minecraft:air -1 
+						/kill @e
+						[
+							type=Armor_Stand,
+							c=1
+						]\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~5 ~0 ~0 chain_command_block 5 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:
+						\"/execute @e
+						[
+							type=Armor_Stand,
+							name=TreeBase,
+							score_tree_min=3
+						] ~ ~ ~ detect ~ ~ ~ minecraft:air -1 
+						/kill @e
+						[
+							type=Armor_Stand,
+							c=1
+						]\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~6 ~0 ~0 chain_command_block 5 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:
+						\"/scoreboard players add @e
+						[
+							type=Item
+						] 
+						treeDropAge 1 
+						{
+							Item:
+							{
+								id:\\\"minecraft:log2\\\"
+							}
+						}\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~7 ~0 ~0 chain_command_block 5 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:
+						\"/scoreboard players add @e
+						[
+							type=Item
+						] 
+						treeDropAge 1 
+						{
+							Item:
+							{
+								id:\\\"minecraft:log\\\"
+							}
+						}\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~8 ~0 ~0 chain_command_block 1 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:
+						\"/execute @a
+						[
+							score_mineLog2_min=1,
+							score_mineLog2=1
+						] ~ ~ ~ 
+						/scoreboard players add @e
+						[
+							type=Item,
+							c=1,
+							score_treeDropAge=1
+						] 
+						tree 1 
+						{
+							Item:
+							{
+								id:\\\"minecraft:log2\\\"
+							}
+						}\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~8 ~1 ~0 chain_command_block 4 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:
+						\"/execute 
+						@e
+						[
+							type=Armor_Stand,
+							score_tree_min=2,
+							score_tree=2,
+							name=TreeBranchU
+						] ~ ~ ~ 
+						/summon Armor_Stand ~ ~ ~1 
+						{
+							Invisible:1,
+							Marker:1,
+							Invulnerable:1,
+							NoGravity:1,
+							NoBasePlate:1,
+							CustomName:\\\"TreeBranchS\\\"
+						}\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~7 ~1 ~0 chain_command_block 4 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:
+						\"/execute @a
+						[
+							score_mineLog_min=1,
+							score_mineLog=1
+						] ~ ~ ~ 
+						/scoreboard players add @e
+						[
+							type=Item,
+							c=1,
+							score_treeDropAge=1
+						] 
+						tree 1 
+						{
+							Item:
+							{
+								id:\\\"minecraft:log\\\"
+							}
+						}\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~6 ~1 ~0 chain_command_block 4 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:
+						\"/execute @e
+						[
+							type=Item,
+							score_tree_min=2,
+							score_tree=2
+						] ~ ~ ~ 
+						/summon Armor_Stand ~ ~ ~ 
+						{
+							Invisible:1,
+							Marker:1,
+							Invulnerable:1,
+							NoGravity:1,
+							NoBasePlate:1,
+							CustomName:\\\"TreeBase\\\"
+						}\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~5 ~1 ~0 chain_command_block 4 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:
+						\"/execute @e
+						[
+							type=Armor_Stand,
+							score_tree_min=2,
+							score_tree=2,
+							name=TreeBranchU
+						] ~ ~ ~ 
+						/summon Armor_Stand ~-1 ~ ~ 
+						{
+							Invisible:1,
+							Marker:1,
+							Invulnerable:1,
+							NoGravity:1,
+							NoBasePlate:1,
+							CustomName:\\\"TreeBranchW\\\"
+						}\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~4 ~1 ~0 chain_command_block 1 replace 
+					{
+					TrackOutput:0b,
+					auto:1b,
+					Command:
+					\"/scoreboard players set @a
+					[
+						score_mineLog_min=2
+					] 
+					mineLog 0\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~4 ~2 ~0 chain_command_block 5 replace 
+					{
+					TrackOutput:0b,
+					auto:1b,
+					Command:
+					\"/scoreboard players add @e
+					[
+						type=Armor_Stand,
+						name=TreeBranchN
+					] 
+					tree 1\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~5 ~2 ~0 chain_command_block 5 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:
+						\"/scoreboard players set @a
+						[
+							score_mineLog2_min=2
+						] 
+						mineLog2 0\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~6 ~2 ~0 chain_command_block 5 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:
+						\"/execute @e
+						[
+							type=Armor_Stand,
+							score_tree_min=2,
+							score_tree=2,
+							name=TreeBranchS
+						] ~ ~ ~ 
+						/summon Armor_Stand ~ ~ ~1 
+						{
+							Invisible:1,
+							Marker:1,
+							Invulnerable:1,
+							NoGravity:1,
+							NoBasePlate:1,
+							CustomName:\\\"TreeBranchS\\\"
+						}\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~7 ~2 ~0 chain_command_block 5 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:
+						\"/execute @e
+						[
+							score_tree_min=3,
+							type=Armor_Stand
+						] ~ ~ ~ 
+						detect ~ ~ ~ minecraft:log -1 
+						/setblock ~ ~ ~ minecraft:air 0 destroy\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~8 ~2 ~0 chain_command_block 3 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:
+						\"/scoreboard players add @e
+						[
+							type=Item,
+							score_tree_min=1
+						] 
+						tree 1\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~8 ~2 ~1 chain_command_block 4 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:
+						\"/scoreboard players add @e
+						[
+							type=Armor_Stand,
+							name=TreeBranchS
+						] 
+						tree 1\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~7 ~2 ~1 chain_command_block 4 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:
+						\"/scoreboard players add @a
+						[
+							score_mineLog_min=1
+						] 
+						mineLog 1\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~6 ~2 ~1 chain_command_block 4 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:
+						\"/execute @e
+						[
+							type=Armor_Stand,
+							score_tree_min=2,
+							score_tree=2,
+							name=TreeBranchU
+						] ~ ~ ~ 
+						/summon Armor_Stand ~ ~ ~-1 
+						{
+							Invisible:1,
+							Marker:1,
+							Invulnerable:1,
+							NoGravity:1,
+							NoBasePlate:1,
+							CustomName:\\\"TreeBranchN\\\"
+						}\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~5 ~2 ~1 chain_command_block 4 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:
+						\"/scoreboard players add @e
+						[
+							type=Armor_Stand,
+							name=TreeBranchW
+						] 
+						tree 1\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~4 ~2 ~1 chain_command_block 0 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:
+						\"/execute @e
+						[
+						type=Armor_Stand,
+						score_tree_min=2,
+						score_tree=2,
+						name=TreeBase
+						] ~ ~ ~ 
+						/summon Armor_Stand ~1 ~ ~ 
+						{
+							Invisible:1,
+							Marker:1,
+							Invulnerable:1,
+							NoGravity:1,
+							NoBasePlate:1,
+							CustomName:\\\"TreeBranchE\\\"
+						}\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~4 ~1 ~1 chain_command_block 5 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:
+						\"/execute @e
+						[
+							type=Armor_Stand,
+							score_tree_min=2,
+							score_tree=2,
+							name=TreeBranchN
+						] ~ ~ ~ 
+						/summon Armor_Stand ~-1 ~ ~ 
+						{
+							Invisible:1,
+							Marker:1,
+							Invulnerable:1,
+							NoGravity:1,
+							NoBasePlate:1,
+							CustomName:\\\"TreeBranchW\\\"
+						}\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~5 ~1 ~1 chain_command_block 5 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:
+						\"/execute @e
+						[
+							type=Armor_Stand,
+							name=TreeBranchN,
+							score_tree_min=1
+						] ~ ~ ~ 
+						detect ~ ~ ~ minecraft:air -1 
+						/kill @e
+						[
+							type=Armor_Stand,
+							c=1
+						]\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~6 ~1 ~1 chain_command_block 5 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:
+						\"/execute @e
+						[
+							type=Armor_Stand,
+							score_tree_min=2,
+							score_tree=2,
+							name=TreeBase
+						] ~ ~ ~ 
+						/summon Armor_Stand ~ ~ ~1 
+						{
+							Invisible:1,
+							Marker:1,
+							Invulnerable:1,
+							NoGravity:1,
+							NoBasePlate:1,
+							CustomName:\\\"TreeBranchS\\\"
+						}\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~7 ~1 ~1 chain_command_block 5 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:
+						\"/execute @e
+						[
+							type=Armor_Stand,
+							score_tree_min=2,
+							score_tree=2,
+							name=TreeBase
+						] ~ ~ ~ 
+						/summon Armor_Stand ~ ~ ~-1 
+						{
+							Invisible:1,
+							Marker:1,
+							Invulnerable:1,
+							NoGravity:1,
+							NoBasePlate:1,
+							CustomName:\\\"TreeBranchN\\\"
+						}\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~8 ~1 ~1 chain_command_block 0 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:
+						\"/execute @e
+						[
+							type=Armor_Stand,
+							score_tree_min=2,
+							score_tree=2,
+							name=TreeBase
+						] ~ ~ ~ 
+						/summon Armor_Stand ~ ~1 ~ 
+						{
+							Invisible:1,
+							Marker:1,
+							Invulnerable:1,
+							NoGravity:1,
+							NoBasePlate:1,
+							CustomName:\\\"TreeBranchU\\\"
+						}\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~8 ~0 ~1 chain_command_block 4 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:
+						\"/execute @e
+						[
+							type=Armor_Stand,
+							score_tree_min=2,
+							score_tree=2,
+							name=TreeBranchE
+						] ~ ~ ~ 
+						/summon Armor_Stand ~1 ~ ~ 
+						{
+							Invisible:1,
+							Marker:1,
+							Invulnerable:1,
+							NoGravity:1,
+							NoBasePlate:1,
+							CustomName:\\\"TreeBranchE\\\"
+						}\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~7 ~0 ~1 chain_command_block 4 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:
+						\"/execute @e
+						[
+							type=Armor_Stand,
+							score_tree_min=2,
+							score_tree=2,
+							name=TreeBranchU
+						] ~ ~ ~ 
+						/summon Armor_Stand ~ ~1 ~ 
+						{
+							Invisible:1,
+							Marker:1,
+							Invulnerable:1,
+							NoGravity:1,
+							NoBasePlate:1,
+							CustomName:\\\"TreeBranchU\\\"
+						}\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~6 ~0 ~1 chain_command_block 4 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:
+						\"/execute @e
+						[
+							score_tree_min=3,
+							type=Armor_Stand
+						] ~ ~ ~ 
+						detect ~ ~ ~ minecraft:leaves -1 
+						/setblock ~ ~ ~ minecraft:air 0 destroy\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~5 ~0 ~1 chain_command_block 4 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:
+						\"/execute @e
+						[
+							type=Armor_Stand,
+							score_tree_min=2,
+							score_tree=2,
+							name=TreeBranchS
+						] ~ ~ ~ 
+						/summon Armor_Stand ~1 ~ ~ 
+						{
+							Invisible:1,
+							Marker:1,
+							Invulnerable:1,
+							NoGravity:1,
+							NoBasePlate:1,
+							CustomName:\\\"TreeBranchE\\\"
+						}\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~4 ~0 ~1 chain_command_block 0 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:\"/execute @e
+						[
+							score_tree_min=3,
+							type=Armor_Stand
+						] ~ ~ ~ 
+						detect ~ ~ ~ minecraft:cocoa -1 
+						/setblock ~ ~ ~ minecraft:air 0 destroy\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~4 ~-1 ~1 chain_command_block 5 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:
+						\"/scoreboard players add @e
+						[
+							type=Armor_Stand,
+							name=TreeBase
+						] 
+						tree 1\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~5 ~-1 ~1 chain_command_block 5 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:
+						\"/execute @e
+						[
+							type=Armor_Stand,
+							score_tree_min=2,
+							score_tree=2,
+							name=TreeBranchU
+						] ~ ~ ~ 
+						/summon Armor_Stand ~1 ~ ~ 
+						{
+							Invisible:1,
+							Marker:1,
+							Invulnerable:1,
+							NoGravity:1,
+							NoBasePlate:1,
+							CustomName:\\\"TreeBranchE\\\"
+						}\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~6 ~-1 ~1 chain_command_block 5 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:
+						\"/scoreboard players add @a
+						[
+							score_mineLog2_min=1
+						] 
+						mineLog2 1\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~7 ~-1 ~1 chain_command_block 5 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:
+						\"/execute @e
+						[
+							type=Armor_Stand,
+							name=TreeBranchU,
+							score_tree_min=1
+						] ~ ~ ~ 
+						detect ~ ~ ~ minecraft:air -1 
+						\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~8 ~-1 ~1 chain_command_block 0 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:
+						\"/execute @e
+						[
+							type=Armor_Stand,
+							score_tree_min=2,
+							score_tree=2,
+							name=TreeBranchN
+						] ~ ~ ~ 
+						/summon Armor_Stand ~ ~ ~-1 
+						{
+							Invisible:1,
+							Marker:1,
+							Invulnerable:1,
+							NoGravity:1,
+							NoBasePlate:1,
+							CustomName:\\\"TreeBranchN\\\"
+						}\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~8 ~-2 ~1 chain_command_block 4 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:
+						\"/kill @e
+						[
+							type=Armor_Stand,
+							score_tree_min=4
+						]\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~7 ~-2 ~1 chain_command_block 4 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:
+						\"/scoreboard players add @e
+						[
+							type=Armor_Stand,
+							name=TreeBranchE
+						] tree 1\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~6 ~-2 ~1 chain_command_block 4 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:
+						\"/execute @e
+						[
+							type=Armor_Stand,
+							score_tree_min=1
+						] ~ ~ ~ 
+						detect ~ ~ ~ minecraft:dirt -1 
+						/kill @e
+						[
+							type=Armor_Stand,
+							c=1
+						]\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~5 ~-2 ~1 chain_command_block 4 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:
+						\"/execute @e
+						[
+							type=Armor_Stand,
+							score_tree_min=1
+						] ~ ~ ~ 
+						detect ~ ~ ~ minecraft:stone -1 
+						/kill @e
+						[
+							type=Armor_Stand,
+							c=1
+						]\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~4 ~-2 ~1 chain_command_block 3 replace 
+					{
+						TrackOutput:0b,
+						auto:1b,
+						Command:
+						\"/execute @e
+						[
+							type=Armor_Stand,
+							score_tree_min=1
+						] ~ ~ ~ 
+						detect ~ ~ ~ minecraft:sand -1 
+						/kill @e
+						[
+							type=Armor_Stand,
+							c=1
+						]\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"summon fireworks_rocket ~ ~1 ~ 
+					{
+						LifeTime:15,
+						FireworksItem:{
+							id:fireworks,
+							Count:2,
+							tag:{
+								Fireworks:{
+									Explosions:
+									[
+										{
+											Type:1,
+											Colors:[I;90253532],
+											FadeColors:[I;18015332]
+										},
+										{
+											Type:1,
+											Colors:[I;15743532],
+											FadeColors:[I;90253532]
+										},
+										{
+											Type:1,
+											Colors:[I;13215332],
+											FadeColors:[I;15743532]
+										},
+										{
+											Type:1,
+											Colors:[I;18015332],
+											FadeColors:[I;13215332]
+										}
+									]
+								}
+							}
+						}
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~-1 ~-3 ~ command_block 0 replace 
+					{
+						Command:\"fill ~ ~ ~ ~2 ~3 ~ air 0\"
+					}"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"setblock ~-1 ~-2 ~ redstone_block 0 replace"
+				}
+				,
+				{
+					id:commandblock_minecart,
+					Command:"kill @e
+					[
+						type=commandblock_minecart
+					]"
+				}
+			]
+		}
+	]
+}
